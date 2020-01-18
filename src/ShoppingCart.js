@@ -17,12 +17,14 @@ class ShoppingCart {
   };
   
   clear() {
-    return this.cart = []
-  }
-};
+    return this.cart = [];
+  };
 
-const henk = new ShoppingCart;
-henk.addItem('sandwich', 3, 2)
-console.log(henk.getItems())
+  total() {
+    return this.cart.reduce((accumulator, currentItem) => {
+      return accumulator + currentItem.pricePerUnit * currentItem.quantity;       
+    }, 0);
+  };
+};
 
 module.exports = ShoppingCart
